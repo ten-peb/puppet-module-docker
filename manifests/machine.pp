@@ -19,7 +19,7 @@ class docker::machine {
 
   file { $dest:
     ensure => present,
-    owner  => 'rooot',
+    owner  => 'root',
     group  => 'root',
     mode   =>  '0755',
     require => Exec[$cmd]
