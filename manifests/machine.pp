@@ -12,8 +12,9 @@ class docker::machine {
   $cmd = "curl -L ${url} > ${dest}"
 
   exec { $cmd:
-    path   => '/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin',
-    onlyif => "test  ! -f ${dest} "
+    command => $cmd,
+    path    => '/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin',
+    onlyif  => "test  ! -f ${dest} "
   }
 
   file { $dest:
