@@ -20,9 +20,6 @@ class docker::package {
   $repourl='https://download.docker.com/linux/ubuntu'
 
   $repoconf="deb [arch=${architecture}] ${repourl} ${codename} stable"
-  notify{'debug fence docker::package #1':
-    message => "repoconf = ${repoconf}"
-  }
  
   $pkgname='docker-ce'
   file{'/etc/apt/sources.list.d/docker.list':
