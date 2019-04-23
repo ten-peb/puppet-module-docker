@@ -13,7 +13,7 @@ class docker::machine {
 
   exec { $cmd:
     path   => '/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin',
-    onlyif => "[ ! -f ${dest} ]"
+    onlyif => "test  ! -f ${dest} "
   }
 
   file { $dest:
