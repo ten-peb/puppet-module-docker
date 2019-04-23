@@ -26,8 +26,8 @@ class docker::package {
   }
 
   exec {'docker apt update':
-    command => 'apt-get update',
-    path='/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/bin',
+    command     => 'apt-get update',
+    path        => '/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/bin',
     refreshonly => true
   }
   package {'docker-ce':
