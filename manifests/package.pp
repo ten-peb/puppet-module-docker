@@ -12,9 +12,14 @@ class docker::package {
     path    => '/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/bin',
     unless => 'apt-key list | grep Docker' 
   }
+
+  $os = $::os
+  $distro = $os['distro']
+  $architecture = $os['architecture']
+  $codename = $distro['codename']
   $repourl='https://download.docker.com/linux/ubuntu'
 
-  $repoconf="deb [arch=${::architecture}] ${::codename} stable"
+  $repoconf="deb [arch=${architecture}] ${codename} stable"
   notify{'debug fence docker::package #1':
     message => "repoconf = ${repoconf}"
   }
