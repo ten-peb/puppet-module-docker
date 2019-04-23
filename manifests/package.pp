@@ -19,7 +19,7 @@ class docker::package {
   $codename = $distro['codename']
   $repourl='https://download.docker.com/linux/ubuntu'
 
-  $repoconf="deb [arch=${architecture}] ${codename} stable"
+  $repoconf="deb [arch=${architecture}] ${repourl} ${codename} stable"
   notify{'debug fence docker::package #1':
     message => "repoconf = ${repoconf}"
   }
