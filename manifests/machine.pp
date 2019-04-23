@@ -6,7 +6,7 @@
 #   include docker::machine
 class docker::machine {
   $base='https://github.com/docker/machine/releases/download/v0.16.0'
-  $hw = "$::os['hardware]"
+  $hw = $::os['hardware]
   $url="${base}/docker-macine/Linux-${hw}"
   $dest='/usr/local/bin/docker-machine'
   $cmd = "curl -L ${url} > ${dest}"
