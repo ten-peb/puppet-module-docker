@@ -38,7 +38,8 @@ class docker::package {
   exec {'docker apt update':
     command     => 'apt-get update',
     path        => '/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/bin',
-    refreshonly => true
+    refreshonly => true,
+    require     => File['/etc/apt/sources.list.d/docker.list']
   }
   package {'docker-ce':
     ensure => latest
