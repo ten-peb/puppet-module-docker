@@ -20,7 +20,7 @@ class docker::package {
     content => template('docker/docker_list.erb'),
     owner   => 'root',
     group   => 'root',
-    mode    => '0644'
+    mode    => '0644',
     notify  => Exec['docker apt update'],
     require => Exec['get docker-ce key']
   }
