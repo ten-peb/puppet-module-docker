@@ -5,4 +5,11 @@
 # @example
 #   include docker::service
 class docker::service {
+  include docker::package
+  
+  service{'docker':
+    ensure => running,
+    enable => true,
+    require => Package['docker-ce']
+   }
 }
