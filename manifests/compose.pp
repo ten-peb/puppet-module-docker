@@ -8,7 +8,7 @@ class docker::compose {
 
   $wget='curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose'
   exec{$wget:
-    path   => '/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin'
+    path   => '/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin',
     onlyif => 'test ! -f /usr/local/bin/docker-compose'
   }
   file{'/usr/local/bin/docker-compose':
