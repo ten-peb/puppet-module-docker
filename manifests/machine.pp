@@ -8,7 +8,7 @@ class docker::machine {
   $base='https://github.com/docker/machine/releases/download/v0.16.0'
   $hw = "$::os['hardware]"
   $url="${base}/docker-macine/${::kernel}-${hw}"
-  $dest='/usr/local/bin docker-machine'
+  $dest='/usr/local/bin/docker-machine'
   $cmd = "curl -L ${url} > ${dest}"
 
   exec { $cmd:
