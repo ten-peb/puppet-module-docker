@@ -6,5 +6,5 @@
 #   include docker
 class docker {
   include docker::package
-  include docker::service 
+  include docker::service
 }

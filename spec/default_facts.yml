@@ -5,3 +5,20 @@
 ipaddress: "172.16.254.254"
 is_pe: false
 macaddress: "AA:AA:AA:AA:AA:AA"
+os:
+  architecture: amd64
+  distro: 
+    codename: bionic
+    description: Ubuntu 18.04.2 LTS
+    id: Ubuntu
+    release:
+      full: 18.04
+      major: 18.04
+  family: Debian
+  hardware: x86_64
+  name: Ubuntu
+  release:
+    full: 18.04
+    major: 18.04
+  selinux:
+    enabled: false

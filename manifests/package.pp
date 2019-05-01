@@ -10,7 +10,7 @@ class docker::package {
   exec {'get docker-ce key':
     command => $load_key_cmd,
     path    => '/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/bin',
-    unless => 'apt-key list | grep Docker' 
+    unless  => 'apt-key list | grep Docker'
   }
 
   $os = $::os
@@ -20,10 +20,10 @@ class docker::package {
   $repourl='https://download.docker.com/linux/ubuntu'
 
   $repoconf="deb [arch=${architecture}] ${repourl} ${codename} stable"
- 
+
   $pkgname='docker-ce'
   file{'/etc/apt/sources.list.d/docker.list':
-    ensure   => present,
+    ensure  => present,
     content => template('docker/docker_list.erb'),
     owner   => 'root',
     group   => 'root',
