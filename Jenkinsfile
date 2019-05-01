@@ -3,13 +3,19 @@ node("master"){
     doGitClone('git@github.com:ten-peb/puppet-module-docker.git','docker')
   }
   stage("Bundle Install"){
-    sh("bundle install --path=vendor")
+    dir("docker") {
+      sh("bundle install --path=vendor")
+    }
   }
   stage("Validate"){
-    sh("bundle exec rake validate")
+    dir("docker") {
+      sh("bundle exec rake validate")
+    }
   }
   stage("Lint"){
-    sh("bundle exec rake lint")
+    dir("docker"){
+      sh("bundle exec rake lint")
+    }
   }
   stage("Deploy"){
     build 'executeR10K'
